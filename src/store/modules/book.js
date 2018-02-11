@@ -1,6 +1,3 @@
-/**
- * Created by Administrator on 2018/2/2.
- */
 import request from 'superagent'
 import jsonp from 'superagent-jsonp'
 

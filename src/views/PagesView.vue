@@ -1,20 +1,34 @@
 <template>
   <div class="pages-view">
-    <HeaderBar></HeaderBar>
-    <TalionView></TalionView>
+    <header-bar @showTalion="open"></header-bar>
+    <router-view></router-view>
+    <talion-view v-show="talion" @closeTalion="close"></talion-view>
   </div>
 </template>
 
 <script>
-  import HeaderBar from '../components/HeaderBar'
-  import TalionView from '../components/TalionView'
-  export default{
-    name: 'pages-view',
-    components: {HeaderBar, TalionView},
-    data(){
-      return {}
-    },
-    methods: {}
+import HeaderBar from '../components/HeaderBar'
+import TalionView from '../views/TalionView'
 
+export default {
+  name: 'pages-view',
+  components: { HeaderBar, TalionView },
+  data () {
+    return {
+      talion: false
+    }
+  },
+  methods: {
+    open: function () {
+      this.talion = true
+    },
+    close: function () {
+      this.talion = false
+    }
   }
+}
 </script>
+
+<style scoped>
+
+</style>
